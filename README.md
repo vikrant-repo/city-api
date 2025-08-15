@@ -44,18 +44,37 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Run tests
+### Goal
+1. Implement a backend service that will integrate data from an external API (already provided) and return processed results according to specific business rules.
+2. We expect production-quality code: clean, maintainable, and well-documented. Please make reasonable architectural and technical decisions on your own.
 
-```bash
-# unit tests
-$ npm run test
+### Task requirements
+1. Create a single endpoint GET /cities that will fetch the list of the most polluted cities by country.
+2. This endpoint should:
+  1. Fetch data from our mock API
+  2. Normalise the data.
+  3. Only return results that are actual cities.
+  4. Some entries in the mock API are intentionally corrupted or are not cities.
+  5. The data may have typos, incomplete entries, or completely wrong records.
+  6. You need to detect and filter these out.
+  7. Enrich the data
+  8. For each valid city, fetch a short description from the Wikipedia API
+  9. Add this description field to your returned JSON.
+  10. Return the final result.
 
-# e2e tests
-$ npm run test:e2e
+The response should be in the following format:
+<img width="449" height="267" alt="image" src="https://github.com/user-attachments/assets/0438446f-412c-4491-bf3a-74f946cf5bba" />
 
-# test coverage
-$ npm run test:cov
-```
+
+### How do you determine whether something is a city?
+pattern - station|zone|district|powerplant|unknown|industrial|monitoring
+
+### Pollution data API
+BaseURL: https://be-recruitment-task.onrender.com
+Docs: https://be-recruitment-task.onrender.com/docs
+Credentials:
+	Username: testuser
+	Password: testpass
 
 ## Deployment
 
